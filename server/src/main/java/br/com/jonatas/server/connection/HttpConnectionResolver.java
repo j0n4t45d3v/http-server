@@ -1,5 +1,6 @@
 package br.com.jonatas.server.connection;
 
+import br.com.jonatas.server.ServerConfiguration;
 import br.com.jonatas.server.dto.ConnectionRequest;
 import br.com.jonatas.server.dto.http.Response;
 import br.com.jonatas.server.router.RouteManager;
@@ -21,11 +22,13 @@ public class HttpConnectionResolver implements ConnectionResolver {
     private static final Logger log = LoggerFactory.getLogger(HttpConnectionResolver.class);
 
     private final RouteManager routeManager;
+    private final ServerConfiguration serverConfiguration;
     private final ExecutorService executorService;
 
-    public HttpConnectionResolver(RouteManager routeManager) {
+    public HttpConnectionResolver(RouteManager routeManager, ServerConfiguration serverConfiguration) {
         this.routeManager = routeManager;
-        this.executorService = Executors.newFixedThreadPool(10);
+        this.serverConfiguration = serverConfiguration;
+        this.executorService = Executors.newFixedThreadPool(this.serverConfiguration.getServerMaxThreadPool());
     }
 
     @Override

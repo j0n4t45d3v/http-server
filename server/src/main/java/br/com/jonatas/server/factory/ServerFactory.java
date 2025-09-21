@@ -1,5 +1,6 @@
 package br.com.jonatas.server.factory;
 
+import br.com.jonatas.server.ServerConfiguration;
 import br.com.jonatas.server.protocol.application.Server;
 import br.com.jonatas.server.protocol.application.Http;
 import br.com.jonatas.server.connection.HttpConnectionResolver;
@@ -11,7 +12,7 @@ import java.util.Map;
 public class ServerFactory {
 
     public enum TypeServer {
-        HTTP_1_1, HTTPS_1_1;
+        HTTP_1_1, HTTPS_1_1, WEBSOCKET, FTP;
     };
 
     @FunctionalInterface
@@ -20,7 +21,10 @@ public class ServerFactory {
     }
 
     private static final Map<TypeServer, MakeServer> servers = Map.of(
-            TypeServer.HTTP_1_1, () -> new Http(TransportProtocolFactory.create(8080), new HttpConnectionResolver(RouteManager.INSTANCE))
+            TypeServer.HTTP_1_1, () -> new Http(TransportProtocolFactory.create(), new HttpConnectionResolver(RouteManager.INSTANCE, ServerConfiguration.INSTANCE)),
+            TypeServer.HTTPS_1_1, () -> {throw new RuntimeException("Unimplemented HTTPS Server");},
+            TypeServer.WEBSOCKET, () -> {throw new RuntimeException("Unimplemented WEBSOCKET Server");},
+            TypeServer.FTP, () -> {throw new RuntimeException("Unimplemented FTP Server");}
     );
 
     public static Server create(TypeServer typeServer) throws IOException {
