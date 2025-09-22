@@ -22,7 +22,6 @@
         <module>server</module>
         <module>annotation-processor</module>
         <module>annotation</module>
-        <module>sample</module>
     </modules>
 
     <dependencies>
