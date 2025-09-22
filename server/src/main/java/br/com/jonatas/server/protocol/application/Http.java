@@ -42,7 +42,9 @@ public class Http implements Server {
 
     @Override
     public void stop() throws Exception {
-        this.transportProtocol.close();
+        if(this.transportProtocol.isOpen()) {
+            this.transportProtocol.close();
+        }
     }
 
 }
