@@ -3,6 +3,7 @@ package br.com.jonatas.server.config;
 import br.com.jonatas.server.enumerate.TypeServer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class ServerConfiguration {
@@ -22,9 +23,14 @@ public class ServerConfiguration {
 
     private ServerConfiguration() throws IOException {
         Properties defaultValue = new Properties();
-        defaultValue.load(this.getClass().getClassLoader().getResourceAsStream("default.properties"));
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        defaultValue.load(classLoader.getResourceAsStream("default.properties"));
         this.configuration = new Properties(defaultValue);
-        this.configuration.load(this.getClass().getClassLoader().getResourceAsStream("application.properties"));
+        try(InputStream applicationConfiguration = classLoader.getResourceAsStream("application.properties")) {
+            if(applicationConfiguration != null) {
+                this.configuration.load(applicationConfiguration);
+            }
+        }
     }
 
     public int getServerPort() {
