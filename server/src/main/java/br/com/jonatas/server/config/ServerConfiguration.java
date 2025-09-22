@@ -1,6 +1,6 @@
 package br.com.jonatas.server.config;
 
-import br.com.jonatas.server.factory.ServerFactory;
+import br.com.jonatas.server.enumerate.TypeServer;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -31,12 +31,12 @@ public class ServerConfiguration {
         return Integer.parseInt(this.configuration.getProperty("httpserver.server.port"));
     }
 
-    public ServerFactory.TypeServer getServerType() {
+    public TypeServer getServerType() {
         return switch (this.configuration.getProperty("httpserver.server.type")) {
-            case "http_1_1" -> ServerFactory.TypeServer.HTTP_1_1;
-            case "https_1_1" -> ServerFactory.TypeServer.HTTPS_1_1;
-            case "websocket" -> ServerFactory.TypeServer.WEBSOCKET;
-            case "ftp" -> ServerFactory.TypeServer.FTP;
+            case "http_1_1" -> TypeServer.HTTP_1_1;
+            case "https_1_1" -> TypeServer.HTTPS_1_1;
+            case "websocket" -> TypeServer.WEBSOCKET;
+            case "ftp" -> TypeServer.FTP;
             default ->
                     throw new RuntimeException("Invalid property 'httpserver.server.type' use <http_1_1|https_1_1|websocket|ftp>");
         };

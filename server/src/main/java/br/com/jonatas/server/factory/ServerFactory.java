@@ -1,6 +1,6 @@
 package br.com.jonatas.server.factory;
 
-import br.com.jonatas.server.config.ServerConfiguration;
+import br.com.jonatas.server.enumerate.TypeServer;
 import br.com.jonatas.server.protocol.application.Server;
 import br.com.jonatas.server.protocol.application.Http;
 import br.com.jonatas.server.connection.HttpConnectionResolver;
@@ -10,10 +10,6 @@ import java.io.IOException;
 import java.util.Map;
 
 public class ServerFactory {
-
-    public enum TypeServer {
-        HTTP_1_1, HTTPS_1_1, WEBSOCKET, FTP;
-    };
 
     @FunctionalInterface
     interface MakeServer {
