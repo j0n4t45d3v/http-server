@@ -1,6 +1,6 @@
 package br.com.jonatas.server.factory;
 
-import br.com.jonatas.server.ServerConfiguration;
+import br.com.jonatas.server.config.ServerConfiguration;
 import br.com.jonatas.server.protocol.application.Server;
 import br.com.jonatas.server.protocol.application.Http;
 import br.com.jonatas.server.connection.HttpConnectionResolver;

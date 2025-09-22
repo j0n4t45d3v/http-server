@@ -1,6 +1,6 @@
 package br.com.jonatas.server.factory;
 
-import br.com.jonatas.server.ServerConfiguration;
+import br.com.jonatas.server.config.ServerConfiguration;
 import br.com.jonatas.server.protocol.transport.Tcp;
 import br.com.jonatas.server.protocol.transport.TransportProtocol;
 

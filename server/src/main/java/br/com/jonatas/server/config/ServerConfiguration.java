@@ -1,4 +1,4 @@
-package br.com.jonatas.server;
+package br.com.jonatas.server.config;
 
 import br.com.jonatas.server.factory.ServerFactory;
 

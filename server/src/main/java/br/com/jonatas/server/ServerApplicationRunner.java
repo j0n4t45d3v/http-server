@@ -1,5 +1,6 @@
 package br.com.jonatas.server;
 
+import br.com.jonatas.server.config.ServerConfiguration;
 import br.com.jonatas.server.factory.ServerFactory;
 import br.com.jonatas.server.protocol.application.Server;
 

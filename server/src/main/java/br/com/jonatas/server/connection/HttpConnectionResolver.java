@@ -1,6 +1,6 @@
 package br.com.jonatas.server.connection;
 
-import br.com.jonatas.server.ServerConfiguration;
+import br.com.jonatas.server.config.ServerConfiguration;
 import br.com.jonatas.server.dto.ConnectionRequest;
 import br.com.jonatas.server.dto.http.Response;
 import br.com.jonatas.server.router.RouteManager;
