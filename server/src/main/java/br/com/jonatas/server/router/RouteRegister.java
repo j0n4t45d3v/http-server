@@ -1,6 +1,5 @@
 package br.com.jonatas.server.router;
 
-import br.com.jonatas.annotation.Route;
 import br.com.jonatas.annotation.util.AnnotationUtils;
 import br.com.jonatas.annotationprocessor.util.ClassScanner;
 import br.com.jonatas.server.dto.http.Request;
