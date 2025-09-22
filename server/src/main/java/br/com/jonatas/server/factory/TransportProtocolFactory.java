@@ -7,7 +7,7 @@ import br.com.jonatas.server.protocol.transport.TransportProtocol;
 import java.io.IOException;
 
 public class TransportProtocolFactory {
-    public static TransportProtocol create() throws IOException {
-        return new Tcp(ServerConfiguration.INSTANCE.getServerPort()) ;
+    public static TransportProtocol createTcp() throws IOException {
+        return new Tcp(ServerConfiguration.INSTANCE.getServerPort());
     }
 }
