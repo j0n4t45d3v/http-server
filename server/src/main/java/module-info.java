@@ -9,6 +9,7 @@ module br.com.jonatas.server {
     exports br.com.jonatas.server.enumerate;
     exports br.com.jonatas.server.factory;
     exports br.com.jonatas.server.protocol.application;
+    exports br.com.jonatas.server.protocol.transport;
     exports br.com.jonatas.server.connection;
     exports br.com.jonatas.server.config;
 }
